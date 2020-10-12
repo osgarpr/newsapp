@@ -21,7 +21,7 @@ class ArticleModel {
         //Fire off the request to the api
         
         //Create a string URL
-        let stringUrl = "http://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=3eee11a7023046c0ac3d3c08194549dd"
+        let stringUrl = "http://newsapi.org/v2/everything?q=apple&from=2020-10-11&to=2020-10-11&sortBy=popularity&apiKey=3eee11a7023046c0ac3d3c08194549dd"
         
         //Create a URL Object
         let url = URL(string:stringUrl)

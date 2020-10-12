@@ -56,6 +56,27 @@ class ViewController: UIViewController, ArticleModelProtocol, UITableViewDelegat
         
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        //Detect the indexPath the user selected
+        let indexPath = tableView.indexPathForSelectedRow
+        
+        guard indexPath != nil else {
+            
+            //The user hasn't selected anything
+            return
+        }
+        
+        //Get the article the user tap on
+        let article = articles[indexPath!.row]
+        
+        //Get a reference to the detail view controller
+        let detailVC = segue.destination as! DetailViewController
+        
+        //Pass the article url to the detail view controller
+        detailVC.articleURL = article.url
+    }
+    
     //MARK: -Article Model Protocol Methods
     
     func articlesRetrieved(_ articles: [Article]) {
