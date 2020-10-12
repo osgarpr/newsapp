@@ -21,13 +21,22 @@ class ArticleCell: UITableViewCell {
         
         //Cleanup the Cell before displaying another article
         articleImageView.image = nil
+        articleImageView.alpha = 0
         headlineLabel.text = ""
+        headlineLabel.alpha = 0
         
         //Keep a reference to the article
         articleToDisplay = article
         
         //Set the headline
         headlineLabel.text = articleToDisplay!.title
+        
+        //Animate the label into view
+        UIView.animate(withDuration: 0.6, delay: 0, options: .curveEaseOut, animations: {
+            
+            self.headlineLabel.alpha = 1
+            
+        }, completion: nil)
         
         //Download and display the image
         
@@ -44,6 +53,14 @@ class ArticleCell: UITableViewCell {
             
             //There is image data set the imageView and return
             articleImageView.image = UIImage(data: imageData)
+            
+            UIView.animate(withDuration: 0.6, delay: 0, options: .curveEaseOut, animations: {
+                
+                self.articleImageView.alpha = 1
+                
+            }, completion: nil)
+            
+            return
             
         }
         
@@ -74,6 +91,12 @@ class ArticleCell: UITableViewCell {
                     
                         //display the image data in the imageView
                         self.articleImageView.image = UIImage(data: data!)
+                        
+                        UIView.animate(withDuration: 0.6, delay: 0, options: .curveEaseOut, animations: {
+                            
+                            self.articleImageView.alpha = 1
+                            
+                        }, completion: nil)
                     
                     
                     }

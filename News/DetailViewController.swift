@@ -9,14 +9,19 @@
 import UIKit
 import WebKit // Required for Web View
 
-class DetailViewController: UIViewController {
+class DetailViewController: UIViewController, WKNavigationDelegate {
 
     @IBOutlet weak var webView: WKWebView!
+    
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
+    
     
     var articleURL:String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        webView.navigationDelegate = self
 
         // Do any additional setup after loading the view.
     }
@@ -37,11 +42,24 @@ class DetailViewController: UIViewController {
             //Create the URLrequest object
             let request = URLRequest(url: url!)
             
+            //Start spinner
+            spinner.alpha = 1
+            spinner.startAnimating()
+            
             //Load it on the webview
             webView.load(request)
         }
         
        
+        
+    }
+    
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        
+        //Stop the spinner and hide it
+        
+        spinner.stopAnimating()
+        spinner.alpha = 0
         
     }
     

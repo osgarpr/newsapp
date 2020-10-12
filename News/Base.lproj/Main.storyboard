@@ -92,18 +92,24 @@
                                     <wkPreferences key="preferences"/>
                                 </wkWebViewConfiguration>
                             </wkWebView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="34f-qj-zVQ">
+                                <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="YRA-VZ-psn" firstAttribute="top" secondItem="f4d-QK-AGj" secondAttribute="top" id="1qu-qK-PKS"/>
                             <constraint firstAttribute="trailing" secondItem="YRA-VZ-psn" secondAttribute="trailing" id="MlT-Ve-34G"/>
+                            <constraint firstItem="34f-qj-zVQ" firstAttribute="centerY" secondItem="f4d-QK-AGj" secondAttribute="centerY" id="NkL-0a-1yf"/>
                             <constraint firstItem="YRA-VZ-psn" firstAttribute="leading" secondItem="f4d-QK-AGj" secondAttribute="leading" id="PXH-tQ-qn2"/>
                             <constraint firstAttribute="bottom" secondItem="YRA-VZ-psn" secondAttribute="bottom" id="Znz-o9-4kM"/>
+                            <constraint firstItem="34f-qj-zVQ" firstAttribute="centerX" secondItem="f4d-QK-AGj" secondAttribute="centerX" id="z1L-Tr-7cz"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="rGl-AM-HaG"/>
                     </view>
                     <navigationItem key="navigationItem" id="dWJ-iF-ZTr"/>
                     <connections>
+                        <outlet property="spinner" destination="34f-qj-zVQ" id="WRo-h0-m07"/>
                         <outlet property="webView" destination="YRA-VZ-psn" id="fhu-qb-AY9"/>
                     </connections>
                 </viewController>
